@@ -169,9 +169,31 @@
             font-size: 1.1rem; color: var(--secondary-text-color); font-weight: 400;
         }
         
-        .price-wrapper { margin-bottom: 25px; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 10px; }
-        .price-wrapper .old-price { font-size: 1.5rem; color: var(--danger-color); text-decoration: line-through; }
-        .price-wrapper .new-price { font-size: 2rem; font-weight: 700; color: var(--primary-blue); }
+        /* تغییرات اعمال شده در اینجا: Price wrapper منتقل شد به پایین */
+        .price-wrapper { 
+            margin-top: auto; /* برای هل دادن به پایین */
+            margin-bottom: 25px; 
+            display: flex; 
+            flex-direction: column; /* تغییر به ستونی */
+            justify-content: center; 
+            align-items: center; 
+            gap: 5px; /* کاهش فاصله بین قیمت‌ها */
+        }
+        .price-wrapper .old-price { 
+            font-size: 1.5rem; 
+            color: var(--danger-color); 
+            text-decoration: line-through;
+            white-space: nowrap; /* جلوگیری از شکستن خط */
+        }
+        .price-wrapper .old-price .unit {
+            font-size: 0.9em; /* کوچک کردن واحد پولی */
+        }
+        .price-wrapper .new-price { 
+            font-size: 2rem; 
+            font-weight: 700; 
+            color: var(--primary-blue); 
+            white-space: nowrap; /* جلوگیری از شکستن خط */
+        }
         .new-price .small-text { font-size: 1rem; }
         
         .product-card .features { list-style: none; margin-bottom: 30px; text-align: right; flex-grow: 1; }
@@ -255,21 +277,21 @@
             <div class="pricing-grid">
                 <div class="product-card">
                     <div class="plan-name">۱ <span>ماهه</span></div>
+                    <ul class="features"><li>۲ کاربر همزمان</li><li>حجم نامحدود</li><li>پشتیبانی کامل</li></ul>
                     <div class="price-wrapper">
-                        <span class="old-price">۲۵۰ هزار تومان</span>
+                        <span class="old-price">۲۵۰ <span class="unit">هزار تومان</span></span>
                         <span class="new-price">۱۷۵ <span class="small-text">هزار تومان</span></span>
                     </div>
-                    <ul class="features"><li>۲ کاربر همزمان</li><li>حجم نامحدود</li><li>پشتیبانی کامل</li></ul>
                     <a href="https://t.me/vpnlikebot" class="btn btn-blue">خرید آنلاین</a>
                 </div>
                 <div class="product-card">
                     <div class="badge-ribbon"><span>پیشنهاد ویژه</span></div>
                     <div class="plan-name">۳ <span>ماهه</span></div>
-                     <div class="price-wrapper">
-                        <span class="old-price">۶۰۰ هزار تومان</span>
+                    <ul class="features"><li>۲ کاربر همزمان</li><li>حجم نامحدود</li><li>پشتیبانی کامل</li></ul>
+                    <div class="price-wrapper">
+                        <span class="old-price">۶۰۰ <span class="unit">هزار تومان</span></span>
                         <span class="new-price">۴۲۰ <span class="small-text">هزار تومان</span></span>
                     </div>
-                    <ul class="features"><li>۲ کاربر همزمان</li><li>حجم نامحدود</li><li>پشتیبانی کامل</li></ul>
                     <a href="https://t.me/vpnlikebot" class="btn btn-blue">خرید آنلاین</a>
                 </div>
             </div>
@@ -286,11 +308,11 @@
                     <div class="country-flags">
                         <img src="germany.png" alt="Germany"><img src="france.png" alt="France"><img src="turkey.png" alt="Turkey"><img src="usa.png" alt="USA">
                     </div>
+                    <ul class="features"><li>آی پی اختصاصی</li><li>۲ کاربر همزمان</li><li>حجم نامحدود</li></ul>
                     <div class="price-wrapper">
-                        <span class="old-price">۳۵۰ هزار تومان</span>
+                        <span class="old-price">۳۵۰ <span class="unit">هزار تومان</span></span>
                         <span class="new-price">۲۴۵ <span class="small-text">هزار تومان</span></span>
                     </div>
-                    <ul class="features"><li>آی پی اختصاصی</li><li>۲ کاربر همزمان</li><li>حجم نامحدود</li></ul>
                      <a href="https://t.me/vpnlikebot" class="btn btn-blue">خرید آنلاین</a>
                 </div>
                 <div class="product-card">
@@ -299,11 +321,11 @@
                     <div class="country-flags">
                         <img src="germany.png" alt="Germany"><img src="france.png" alt="France"><img src="turkey.png" alt="Turkey"><img src="usa.png" alt="USA">
                     </div>
+                    <ul class="features"><li>آی پی اختصاصی</li><li>۲ کاربر همزمان</li><li>حجم نامحدود</li></ul>
                     <div class="price-wrapper">
-                        <span class="old-price">۸۵۰ هزار تومان</span>
+                        <span class="old-price">۸۵۰ <span class="unit">هزار تومان</span></span>
                         <span class="new-price">۵۹۵ <span class="small-text">هزار تومان</span></span>
                     </div>
-                    <ul class="features"><li>آی پی اختصاصی</li><li>۲ کاربر همزمان</li><li>حجم نامحدود</li></ul>
                      <a href="https://t.me/vpnlikebot" class="btn btn-blue">خرید آنلاین</a>
                 </div>
             </div>
@@ -317,11 +339,11 @@
             <div class="pricing-grid single-item-grid">
                 <div class="product-card">
                     <div class="plan-name" style="font-size: 1.8rem;">پنل نمایندگی</div>
+                    <ul class="features"><li class="special-feature">سود شما: ۲ میلیون تومان</li><li>۳۰ اکانت تک کاربر</li><li>هر اکانت ۵۰ گیگابایت</li><li>آی‌پی ثابت</li></ul>
                     <div class="price-wrapper">
-                        <span class="old-price">۱۰۰ تومان / هر اکانت</span>
+                        <span class="old-price">۱۰۰ <span class="unit">تومان / هر اکانت</span></span>
                         <span class="new-price">۷۰ <span class="small-text">تومان / هر اکانت</span></span>
                     </div>
-                    <ul class="features"><li class="special-feature">سود شما: ۲ میلیون تومان</li><li>۳۰ اکانت تک کاربر</li><li>هر اکانت ۵۰ گیگابایت</li><li>آی‌پی ثابت</li></ul>
                     <a href="https://t.me/vpnlikebot" class="btn btn-orange">دریافت پنل</a>
                 </div>
             </div>
