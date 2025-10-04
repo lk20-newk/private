@@ -1,447 +1,366 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="utf-8">
-    <title>My GitHub Page</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>VPNLike - سرویس VPN اختصاصی</title>
     <style>
-        /* تعریف ایران‌سنس معمولی */
+        /* --- تعریف فونت‌ها --- */
         @font-face {
             font-family: 'IRANSansWeb';
-            src: url('fonts/IRANSansWeb.eot');
-            src: url('fonts/IRANSansWeb.eot?#iefix') format('embedded-opentype'),
-                 url('fonts/IRANSansWeb.woff2') format('woff2'),
+            src: url('fonts/IRANSansWeb.woff2') format('woff2'),
                  url('fonts/IRANSansWeb.woff') format('woff'),
                  url('fonts/IRANSansWeb.ttf') format('truetype');
-            font-weight: 400;
+            font-weight: 400; /* normal */
             font-style: normal;
+            font-display: swap;
         }
 
-        /* تعریف ایران‌سنس بولد */
         @font-face {
             font-family: 'IRANSansWeb';
-            src: url('fonts/IRANSansWeb_Bold.eot');
-            src: url('fonts/IRANSansWeb_Bold.eot?#iefix') format('embedded-opentype'),
-                 url('fonts/IRANSansWeb_Bold.woff2') format('woff2'),
+            src: url('fonts/IRANSansWeb_Bold.woff2') format('woff2'),
                  url('fonts/IRANSansWeb_Bold.woff') format('woff'),
                  url('fonts/IRANSansWeb_Bold.ttf') format('truetype');
-            font-weight: 700;
+            font-weight: 700; /* bold */
             font-style: normal;
+            font-display: swap;
         }
 
-        /* تعریف بی‌یکان (اختیاری) */
-        @font-face {
-            font-family: 'BYekan';
-            src: url('fonts/BYekan.eot');
-            src: url('fonts/BYekan.eot?#iefix') format('embedded-opentype'),
-                 url('fonts/BYekan.woff') format('woff'),
-                 url('fonts/BYekan.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
+        /* --- استایل‌های اصلی و پایه --- */
+        :root {
+            --bg-color: #121212;
+            --primary-color: #007BFF;
+            --secondary-color: #8A2BE2;
+            --text-color: #E0E0E0;
+            --card-bg-color: rgba(255, 255, 255, 0.08);
+            --border-color: rgba(255, 255, 255, 0.2);
+            --shadow-color: rgba(0, 0, 0, 0.5);
+            --success-color: #28a745;
         }
 
-        /* استایل کلی صفحه */
-        body {
+        * {
             margin: 0;
             padding: 0;
-            direction: rtl;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'IRANSansWeb', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             text-align: right;
-            font-family: 'IRANSansWeb', sans-serif; 
+            line-height: 1.8;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- هدر و لوگو --- */
+        .header-image {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+
+        /* --- تایپوگرافی و عناوین --- */
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            color: #FFFFFF;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-top: 60px;
+            background: -webkit-linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        section {
+            margin-bottom: 60px;
+        }
+
+        /* --- لیست ویژگی‌ها --- */
+        .features-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .features-list li {
+            background: var(--card-bg-color);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .features-list li:before {
+            content: '🚀';
+            margin-left: 10px;
+        }
+        
+        .features-list li:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255, 255, 255, 0.12);
+        }
+
+        /* --- کارت‌های قیمت (طراحی شیشه‌ای) --- */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .product-card {
+            background: var(--card-bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 var(--shadow-color);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 12px 40px 0 var(--shadow-color);
+        }
+        
+        .product-card .plan-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .product-card .plan-duration {
+            font-size: 1.1rem;
+            color: #b0b0b0;
+            margin-bottom: 25px;
+        }
+
+        .product-card .features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .product-card .features li {
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+        
+        .product-card .features li::before {
+             content: '✓';
+             color: var(--success-color);
+             margin-left: 8px;
+             font-weight: bold;
+        }
+
+        .product-card .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .product-card .price .small-text {
+            font-size: 1rem;
             font-weight: 400;
         }
-
-        h1, h2, h3, strong, b {
-            font-weight: 700; /* ایران‌سنس بولد */
-            color: #525252;
+        
+        .product-card .special-feature {
+            color: #FFD700; /* Gold color */
+            font-weight: 700;
         }
 
-        /* فاصله از سمت راست برای h1 و strong */
-        h1, strong {
-            margin-right: 1em;
-            color: #525252;
-        }
-
-        ul li {
-            font-size: 0.9em; /* متن آیتم‌های لیست کمی کوچک‌تر */
-            color: #525252;
-        }
-
-        /* نمونه بخش با بی‌یکان (اختیاری) */
-        .yekan-section {
-            font-family: 'BYekan', sans-serif;
-        }
-
-        /* استایل‌های مربوط به کارت محصولات */
-        .main-container {
-            font-family: 'IRANSansWeb', sans-serif;
-            direction: rtl;
-            background-color: #ffffff;
-            display: flex;
-            justify-content: space-around; /* در نمایش دسکتاپ فاصله اطراف باشد */
-            align-items: center;
-            min-height: 30vh;
-            flex-wrap: wrap;
+        /* --- دکمه‌ها --- */
+        .btn {
+            display: block;
             width: 100%;
-            padding: 20px 0px 0px;
-        }
-        .product-card {
-            width: 20%;
-            padding: 20px;
-            margin: 10px;
-            background-color: #ececec;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 4px 6px #4a4949e3;
-            font-size: 1.2rem;
-            color: #4a4949e3;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            font-family: 'IRANSansWeb', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
             cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-            display: inline-block;
-            vertical-align: top;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 10px;
         }
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-            background-color: #ff2b2bd9;
-        }
-        .card-gold {
-            background-color: #f8e9a0; /* رنگ زمینه طلایی */
-            box-shadow: 0 4px 6px #bfa055; 
-            color: #bfa055; 
-        }
-        .card-blue {
-            background-color: #a0daf8b0; 
-            box-shadow: 0 4px 6px #55a5bf; 
-            color: #bfa055; 
-        }
-        .product-card .duration {
-            font-size: 2.5rem;
-            color: #4a4949b0;
-            margin-bottom: 10px;
-            font-family: 'IRANSansWeb';
-            display: inline;
-        }
-        .product-card .label {
-            margin-bottom: 20px;
-            font-family: 'IRANSansWeb';
-            display: inline;
-            color: #4a4949b0;
-            font-size: 15px;
-        }
-        .product-card .price {
-            font-size: 1.4rem;
-            font-weight: bold;
-            font-family: 'IRANSansWeb';
-            color: #576071;
-        }
-        .product-card .price .old-price {
-            text-decoration: line-through;
-            font-size: 0.9rem;
-            color: #b4b4b4;
-            margin-right: 5px;
-        }
-        .product-card .gift-icon {
-            display: inline-block;
-            font-size: 43px;
-            color: #ffb600;
-            margin-bottom: 5px;
-        }
-        .fixed-ip-label {
-            font-size: 12px; 
-            color: #666666;
-            display: flex;
-            margin-top: 1px;
-            margin-bottom: 20px;
-            margin-right: 70px;
-            font-family: 'IRANSansWeb';
-            gap: 2px; 
-        }
-        .fixed-ip-label .icon {
-            width: 16px;
-            height: 16px;
+        
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: #fff;
+            background-size: 200% 200%;
+            animation: gradient-animation 4s ease infinite;
         }
 
-        /* نمایش دسکتاپ بین 769px تا 1350px */
-        @media (min-width: 769px) and (max-width: 1350px) {
-            .product-card {
-                width: 30%; 
-                margin: 1rem; 
-            }
-            .fixed-ip-label {
-                margin-right: 50px; 
-            }
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
         }
 
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- تصاویر تکمیلی --- */
+        .content-image {
+             display: block;
+             margin: 40px auto;
+             max-width: 100%;
+             width: 700px;
+             border-radius: 15px;
+             box-shadow: 0 10px 30px var(--shadow-color);
+        }
+        
+        /* --- طراحی واکنش‌گرا (Responsive) --- */
         @media (max-width: 768px) {
-    .main-container {
-        justify-content: center; /* کارت‌ها در وسط */
-    }
-    .product-card {
-        width: 31%;
-        margin: 12px; /* حاشیه کمتر از قبل */
-    }
-    .fixed-ip-label {
-        font-size: 11px;  
-        margin-right: 17px; 
-    }
-}
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.8rem;
+            }
+            .features-list, .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
 
-
-        .small-text {
-            font-size: 0.7rem; 
-            font-weight: normal; 
-            color: #576071;
-        }
-        .buy-button {
-            background-color: orangered;
-            color: #ffffff;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-family: 'IRANSansWeb';
-            font-size: 14px;
-            margin-top: 15px;
-            transition: background-color 0.3s ease;
-        }
-        .buy-button:hover {
-            background-color: #cc0000;
-        }
-        .buy-button-tg {
-            background-color: #007bff;
-            color: #ffffff;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-family: 'IRANSansWeb';
-            font-size: 14px;
-            margin-top: 15px;
-            transition: background-color 0.3s ease;
-        }
-        .buy-button-tg:hover {
-            background-color: #00b9ff;
-        }
     </style>
 </head>
 <body>
-    
-    <!-- تصویر هدر -->
-    <img 
-  src="Likeslider.png" 
-  alt="map" 
-  style="
-    display: block; 
-    margin: 20px auto; 
-    
-    width: 100%;        /* اگر صفحه کوچکتر از 600px بود، تصویر تا 100% آن کوچ می‌شود */
-    height: auto;">
 
-    
-    <!-- عنوان اصلی صفحه -->
-    <h1>VPNLike تنها ارائه دهنده فیلترشکن های اختصاصی با آی پی ثابت</h1>
-
-    <!-- یک متن بولد نمونه -->
-    <strong style="color: orangered;">سرویس Private اختصاصی</strong>
-
-    <!-- لیست موارد -->
-    <ul>
-        <li>🚀 خرید فیلترشکن اختصاصی آی پی ثابت خاص و جدید</li>
-        <li>🚀 خرید وی پی ان (مخصوص استفاده روزمره و ترید)</li>
-        <li>🚀 امنیت تضمینی (رمزنگاری شده)</li>
-        <li>🚀 خرید vpn قدرتمندترین دیتاسنترهای جهان (نامحدود)</li>
-        <li>🚀 فیلترشکن بدون محدودیت حجمی (دو کاربر همزمان)</li>
-        <li>🚀 خرید وی پی ان دوکاربر همزمان (ای پی ثابت)</li>
-    </ul>
-
-    <!-- بخش نمایش کارت‌های محصول (سه کارت) -->
-    <div class="main-container">
+    <div class="container">
         
-        <!-- محصول 1 -->
-        <div id="servicesilver612"></div>
-        <div class="product-card">
-            <div class="duration">۱</div>
-            <div class="label">ماه (نامحدود)</div>
-            <div class="fixed-ip-label">
-                ای پی ثابت
-            </div>
-            <div class="fixed-ip-label">
-                کاملا اختصاصی
-            </div>
-            <div class="fixed-ip-label">
-                ۲ کاربر همزمان
-            </div>
-            <div class="fixed-ip-label">
-                حجم نامحدود
-            </div>
-            <div class="fixed-ip-label">
-                %50 تخفیف نوروزی
-            </div>
-            <div class="price">
-                185 <span class="small-text">تومان</span>
-            </div>
-            <button class="buy-button-tg"
-                    onclick="event.stopPropagation(); window.location.href='https://t.me/vpnlike1?text=سلام%20درخواست%20اکانت%20یکماهه%20دارم';">
-                خرید فوری از تلگرام
-            </button>
-            <button class="buy-button"
-                   onclick="event.stopPropagation(); window.location.href='mailto:vpnlike1@gmail.com?subject=درخواست%20اکانت&body=سلام%20درخواست%20اکانت%20یکماهه%20دارم';">
-                خرید از جیمل
-            </button>
-        </div>
+        <header>
+            <img src="Likeslider.png" alt="VPNLike Banner" class="header-image">
+            <h1>VPNLike تنها ارائه‌دهنده VPN اختصاصی با IP ثابت</h1>
+        </header>
 
-        <!-- محصول 2 (آبی) -->
-        <div class="product-card card-blue">
-            <div class="duration">۳</div>
-            <div class="label">ماه (نامحدود)</div>
-            <div class="fixed-ip-label">
-                ای پی ثابت
-            </div>
-            <div class="fixed-ip-label">
-                کاملا اختصاصی
-            </div>
-            <div class="fixed-ip-label">
-                ۲ کاربر همزمان
-            </div>
-            <div class="fixed-ip-label">
-                حجم نامحدود
-            </div>
-            <div class="fixed-ip-label">
-                %50 تخفیف نوروزی
-            </div>
-            <div class="price">
-                379 <span class="small-text">تومان</span>
-            </div>
-            <button class="buy-button-tg"
-                    onclick="event.stopPropagation(); window.location.href='https://t.me/vpnlike1?text=سلام%20درخواست%20اکانت%20سه%20ماهه%20دارم';">
-                خرید فوری از تلگرام
-            </button>
-            <button class="buy-button"
-                   onclick="event.stopPropagation(); window.location.href='mailto:vpnlike1@gmail.com?subject=درخواست%20اکانت&body=سلام%20درخواست%20اکانت%20سه%20ماهه%20دارم';">
-                خرید از جیمل
-            </button>
-        </div>
+        <main>
+            <section id="main-features">
+                <h2>سرویس Private اختصاصی</h2>
+                <ul class="features-list">
+                    <li>خرید فیلترشکن اختصاصی، آی‌پی ثابت، خاص و جدید</li>
+                    <li>مناسب برای استفاده روزمره و ترید (Trade)</li>
+                    <li>امنیت تضمینی با رمزنگاری پیشرفته</li>
+                    <li>سرورهای قدرتمند از بهترین دیتاسنترهای جهان</li>
+                    <li>بدون محدودیت حجمی و قابل استفاده برای دو کاربر همزمان</li>
+                    <li>پشتیبانی از تمامی دستگاه‌ها و سیستم‌عامل‌ها</li>
+                </ul>
+            </section>
+            
+            <section id="pricing">
+                <h2>پلن‌های اشتراک</h2>
+                <div class="pricing-grid">
+                    
+                    <div class="product-card">
+                        <div class="plan-name">پلن یک ماهه</div>
+                        <div class="plan-duration">سرویس نامحدود</div>
+                        <ul class="features">
+                            <li>آی‌پی ثابت و اختصاصی</li>
+                            <li>۲ کاربر همزمان</li>
+                            <li>حجم ترافیک نامحدود</li>
+                            <li class="special-feature">شامل %50 تخفیف</li>
+                        </ul>
+                        <div class="price">185 <span class="small-text">تومان</span></div>
+                        <a href="https://t.me/vpnlike1?text=سلام%20درخواست%20اکانت%20یکماهه%20دارم" class="btn btn-primary">خرید فوری از تلگرام</a>
+                        <a href="mailto:vpnlike1@gmail.com?subject=درخواست%20اکانت&body=سلام%20درخواست%20اکانت%20یکماهه%20دارم" class="btn btn-secondary">خرید از طریق ایمیل</a>
+                    </div>
 
-        <!-- محصول 3 (نمایندگی) -->
-        <div id="servicepv-r"></div>
-        <div class="product-card">
-            <div class="duration">نمایندگی</div>
-            <div class="label">۱ ماه</div>
-            <div class="fixed-ip-label" style="color: orangered;">
-                سود شما : ۲ میلیون تومان
-            </div>
-            <div class="fixed-ip-label">ای پی ثابت</div>
-            <div class="fixed-ip-label">۳۰ اکانت تک کاربر</div>
-            <div class="fixed-ip-label">هر اکانت ۵۰ گیگ</div>
-            <div class="fixed-ip-label">%50 تخفیف نوروزی</div>
-            <div class="price">
-                80 <span class="small-text">تومان / هر اکانت</span>
-            </div>
-            <button class="buy-button-tg"
-                    onclick="event.stopPropagation(); window.location.href='https://t.me/vpnlike1?text=سلام%20درخواست%20بسته%20نمایندگی%20دارم';">
-                خرید فوری از تلگرام
-            </button>
-            <button class="buy-button"
-                   onclick="event.stopPropagation(); window.location.href='mailto:vpnlike1@gmail.com?subject=درخواست%20اکانت&body=سلام%20درخواست%20بسته%20نمایندگی%20دارم';">
-                خرید از جیمل
-            </button>
-        </div>
+                    <div class="product-card">
+                        <div class="plan-name">پلن سه ماهه</div>
+                        <div class="plan-duration">مقرون‌به‌صرفه و پرفروش</div>
+                         <ul class="features">
+                            <li>آی‌پی ثابت و اختصاصی</li>
+                            <li>۲ کاربر همزمان</li>
+                            <li>حجم ترافیک نامحدود</li>
+                            <li class="special-feature">شامل %50 تخفیف</li>
+                        </ul>
+                        <div class="price">379 <span class="small-text">تومان</span></div>
+                        <a href="https://t.me/vpnlike1?text=سلام%20درخواست%20اکانت%20سه%20ماهه%20دارم" class="btn btn-primary">خرید فوری از تلگرام</a>
+                        <a href="mailto:vpnlike1@gmail.com?subject=درخواست%20اکانت&body=سلام%20درخواست%20اکانت%20سه%20ماهه%20دارم" class="btn btn-secondary">خرید از طریق ایمیل</a>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="plan-name">پلن نمایندگی</div>
+                        <div class="plan-duration">کسب درآمد و همکاری</div>
+                         <ul class="features">
+                            <li class="special-feature">سود شما: ۲ میلیون تومان</li>
+                            <li>۳۰ اکانت تک‌کاربره</li>
+                            <li>هر اکانت با حجم ۵۰ گیگابایت</li>
+                            <li>شامل %50 تخفیف</li>
+                        </ul>
+                        <div class="price">80 <span class="small-text">تومان / هر اکانت</span></div>
+                        <a href="https://t.me/vpnlike1?text=سلام%20درخواست%20بسته%20نمایندگی%20دارم" class="btn btn-primary">خرید فوری از تلگرام</a>
+                        <a href="mailto:vpnlike1@gmail.com?subject=درخواست%20اکانت&body=سلام%20درخواست%20بسته%20نمایندگی%20دارم" class="btn btn-secondary">خرید از طریق ایمیل</a>
+                    </div>
+                </div>
+            </section>
 
+            <section id="secondary-features">
+                <h2>ویژگی‌های سرویس اختصاصی VPNLike</h2>
+                 <img src="serverb1.png" alt="Server Infrastructure" class="content-image">
+                <ul class="features-list">
+                    <li>اتصال آسان، دائم و بدون قطعی</li>
+                    <li>دسترسی به تمامی پروتکل‌ها در یک نرم‌افزار</li>
+                    <li>بروزرسانی خودکار برنامه و لیست سرورها</li>
+                    <li>نصب بسیار ساده و سریع</li>
+                    <li>قابلیت انتخاب برنامه‌ها برای عبور از فیلترینگ</li>
+                    <li>سرعت بالا، پایدار و با کیفیت عالی</li>
+                </ul>
+            </section>
+            
+            <section id="why-us">
+                <h2>چرا وی‌پی‌ان لایک؟</h2>
+                 <img src="mapw.png" alt="Global Servers Map" class="content-image">
+                <ul class="features-list">
+                    <li>۱۵ سال سابقه درخشان بین کاربران ایرانی</li>
+                    <li>بیش از ۳۰۰۰ سرور اختصاصی در سراسر جهان</li>
+                    <li>ارائه تمام سرویس‌های امن VPN</li>
+                    <li>تحویل فوری و پشتیبانی ۲۴ ساعته</li>
+                    <li>بالاترین سطح امنیت با رمزنگاری ۲۵۶ بیتی</li>
+                    <li>تضمین کیفیت و پایداری سرویس</li>
+                </ul>
+            </section>
+
+        </main>
     </div>
 
-<br><br><br>
-
-    <h1>سرویس اختصاصی VPNLike</h1>
-    
-    <strong style="color: orangered;">ویژگی های سرویس اختصاصی وی پی ان لایک</strong>
-
-    <!-- لیست موارد -->
-    <ul>
-        <li>وی پی ان با آسان و دائم و بدون قطعی</li>
-        <li>دسترسی به تمامی سرویس های فیلترشکن در یک نرم افزار با چند کلیک</li>
-        <li>بروزرسانی خودکار برنامه به هنگام ارائه نسخه جدید vpn</li>
-        <li>بروزرسانی خودکار سرورها و سرویس های فیلترشکن</li>
-        <li>نصب بسیار ساده وی پی ان</li>
-        <li>وی پی ان با سرورهای اختصاصی و امن</li>
-        <li>قابلیت انتخاب برنامه هایی که نیاز به عبور از فیلترشکن دارند</li>
-        <li>حجم پایین اپلیکیشن وی پی ان با سرعت بالا و کیفیت عالی</li>
-        <li>پرسرعت و پایدار با آی‌ پی ثابت در اتصال به سرورهای وی پی ان</li>
-        <li>وی پی ان اختصاصی تضمین امنیت</li>
-        <li>سازگار با تمامی  گوشی ها و تبلت ها و ویندوزها و مک</li>
-    </ul>
-
-
-   <img 
-  src="serverb1.png" 
-  alt="map" 
-  style="
-    display: block; 
-    margin: 20px auto; 
-    max-width: 600px;   /* حداکثر عرض: 600px */
-    width: 100%;        /* اگر صفحه کوچکتر از 600px بود، تصویر تا 100% آن کوچ می‌شود */
-    height: auto;">
-
-
-
-    <br><br><br>
-
-    <h1>چرا وی پی ان لایک ؟</h1>
-    
-    <strong style="color: orangered;">۱۵ سال سابقه درخشان بین کاربران ایرانی</strong>
-
-    <!-- لیست موارد -->
-    <ul>
-   <li>(بیش از ۳۰۰۰ سرور اختصاصی)</li>
-   <li>خريد vpn سرورهای اختصاصی در قدرتمند ترین دیتاسنترهای جهان</li>
-   <li>(پیشرفته ترین تنظیمات)خرید وی پی ان</li>
-   <li>ارائه تمام سرویس های وی پی ان خرید فیلترشکن موجود در جهان</li>
-   <li>(نامحدود و دو کاربر )تحویل فوری پر سرعت و اختصاصی</li>
-   <li>سرعت بالا بدون قطعی و اختصاصی</li>
-   <li>خرید وی پی ان لایک دو کاربر می باشد و هیچ محدودیتی ندارند</li>
-   <li>(با رمزنگاری ۲۵۶ بیتی وی پی ان لایک)خریدفیلترشکن</li>
-   <li>خرید vpn like بالاترین سطح امنیت رابرای شما تضمین میکند</li>
-    </ul>
-
-    <!-- عکس پایانی در پایین صفحه -->
-    <img 
-  src="mapw.png" 
-  alt="map" 
-  style="
-    display: block; 
-    margin: 20px auto; 
-    max-width: 800px;   /* حداکثر عرض: 800px */
-    width: 100%;        /* اگر صفحه کوچکتر از 800px بود، تصویر تا 100% آن کوچ می‌شود */
-    height: auto;">
-
-
-    <!DOCTYPE html>
-<html lang="fa">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پشتیبانی Crisp در GitHub Pages</title>
-</head>
-<body>
-
-    
-
-    <!-- کد ویجت Crisp -->
-    <script type="text/javascript">
-//        window.$crisp = [];
-//        window.CRISP_WEBSITE_ID = "439c986c-9891-4f0c-88c2-0dc7538d675d";
-//        (function() {
-//            d = document;
-//            s = d.createElement("script");
-//            s.src = "https://client.crisp.chat/l.js";
-//            s.async = 1;
-//            d.getElementsByTagName("head")[0].appendChild(s);
-//        })();
-//    </script>
-
-</body>
-</html>
-
-    
-</body>
+    </body>
 </html>
