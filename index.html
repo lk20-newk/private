@@ -123,28 +123,44 @@
         .section-title p { color: var(--secondary-text-color); font-size: 1.1rem; }
 
         /* --- کارت‌های قیمت --- */
-        .pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; justify-content: center; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; justify-content: center; align-items: start; }
         
-        .single-item-grid { max-width: 450px; margin: 0 auto; } /* For single item sections like reseller */
+        .single-item-grid { max-width: 450px; margin: 0 auto; } 
 
         .product-card {
             background: var(--card-bg-color); border: 1px solid var(--border-color); border-radius: 18px; padding: 25px;
             text-align: center; box-shadow: 0 5px 25px var(--shadow-color); transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex; flex-direction: column; position: relative; overflow: hidden;
+            display: flex; flex-direction: column; position: relative; overflow: hidden; height: 100%;
         }
         .product-card:hover { transform: translateY(-8px); box-shadow: 0 10px 30px rgba(44, 62, 80, 0.15); }
-        .product-card .badge { 
-            position: absolute; top: 15px; right: -1px; background-color: var(--primary-orange); 
-            color: #fff; padding: 5px 20px; font-size: 0.9rem; border-radius: 5px 0 0 5px; font-weight: 700;
+
+        /* FIX: New Ribbon Badge Style */
+        .badge-ribbon {
+            position: absolute;
+            top: -5px;
+            right: -5px; /* RTL positioning */
+            width: 110px;
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .badge-ribbon span {
+            position: absolute;
+            width: 150%;
+            background: var(--primary-purple); /* As per screenshot */
+            color: #fff;
+            text-align: center;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 5px 0;
+            transform: rotate(45deg) translateY(-20px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.15);
         }
         
-        /* FIX: Add margin-top to plan-name when a badge exists */
-        .badge + .plan-name {
-            margin-top: 25px;
-        }
-
         .product-card .plan-name {
-            font-size: 2.5rem; font-weight: 700; color: var(--primary-text-color); margin-bottom: 25px;
+            font-size: 2.5rem; font-weight: 700; color: var(--primary-text-color); margin-bottom: 25px; margin-top: 20px;
         }
         .product-card .plan-name span {
             font-size: 1.1rem; color: var(--secondary-text-color); font-weight: 400;
@@ -157,8 +173,8 @@
         
         .product-card .features { list-style: none; margin-bottom: 30px; text-align: right; flex-grow: 1; }
         .product-card .features li { 
-            margin-bottom: 8px; /* User Request */
-            font-size: 14px; /* User Request */
+            margin-bottom: 8px; 
+            font-size: 14px; 
         }
         .product-card .features li::before { content: '✓'; color: var(--success-color); margin-left: 10px; font-weight: bold; }
         .special-feature { color: var(--primary-orange); font-weight: 700; }
@@ -183,7 +199,6 @@
         @media (max-width: 768px) {
             .hero-section h1 { font-size: 2rem; }
             .section-title h2 { font-size: 1.8rem; }
-            /* .pricing-grid { grid-template-columns: 1fr; } */ /* Keep 2 columns on mobile */
             .product-card { padding: 15px; }
             .product-card .plan-name { font-size: 2rem; margin-bottom: 15px; }
             .price-wrapper .new-price { font-size: 1.6rem; }
@@ -244,7 +259,7 @@
                     <a href="https://t.me/vpnlike1?text=سلام%20درخواست%20اکانت%20VIP%20یکماهه%20دارم" class="btn btn-blue">خرید از تلگرام</a>
                 </div>
                 <div class="product-card">
-                    <div class="badge">پیشنهاد ویژه</div>
+                    <div class="badge-ribbon"><span>پیشنهاد ویژه</span></div>
                     <div class="plan-name">۳ <span>ماهه</span></div>
                      <div class="price-wrapper">
                         <span class="old-price">۵۴۰</span>
@@ -275,7 +290,7 @@
                      <a href="https://t.me/vpnlike1?text=سلام%20درخواست%20اکانت%20آی%20پی%20ثابت%20یکماهه%20دارم" class="btn btn-blue">خرید از تلگرام</a>
                 </div>
                 <div class="product-card">
-                    <div class="badge">پیشنهاد ویژه</div>
+                    <div class="badge-ribbon"><span>پیشنهاد ویژه</span></div>
                     <div class="plan-name">۳ <span>ماهه</span></div>
                     <div class="country-flags">
                         <img src="germany.png" alt="Germany"><img src="france.png" alt="France"><img src="turkey.png" alt="Turkey"><img src="usa.png" alt="USA">
