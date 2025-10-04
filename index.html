@@ -138,6 +138,11 @@
             color: #fff; padding: 5px 20px; font-size: 0.9rem; border-radius: 5px 0 0 5px; font-weight: 700;
         }
         
+        /* FIX: Add margin-top to plan-name when a badge exists */
+        .badge + .plan-name {
+            margin-top: 25px;
+        }
+
         .product-card .plan-name {
             font-size: 2.5rem; font-weight: 700; color: var(--primary-text-color); margin-bottom: 25px;
         }
@@ -151,7 +156,10 @@
         .new-price .small-text { font-size: 1rem; }
         
         .product-card .features { list-style: none; margin-bottom: 30px; text-align: right; flex-grow: 1; }
-        .product-card .features li { margin-bottom: 12px; }
+        .product-card .features li { 
+            margin-bottom: 8px; /* User Request */
+            font-size: 14px; /* User Request */
+        }
         .product-card .features li::before { content: '✓'; color: var(--success-color); margin-left: 10px; font-weight: bold; }
         .special-feature { color: var(--primary-orange); font-weight: 700; }
         
@@ -175,12 +183,12 @@
         @media (max-width: 768px) {
             .hero-section h1 { font-size: 2rem; }
             .section-title h2 { font-size: 1.8rem; }
-            /* .pricing-grid { grid-template-columns: 1fr; } */ /* حذف این خط برای حفظ دو ستون در موبایل */
+            /* .pricing-grid { grid-template-columns: 1fr; } */ /* Keep 2 columns on mobile */
             .product-card { padding: 15px; }
             .product-card .plan-name { font-size: 2rem; margin-bottom: 15px; }
             .price-wrapper .new-price { font-size: 1.6rem; }
             .price-wrapper .old-price { font-size: 1.3rem; }
-            .info-grid { grid-template-columns: 1fr; } /* تک ستونه شدن کارت های اطلاعاتی در موبایل */
+            .info-grid { grid-template-columns: 1fr; } 
         }
     </style>
 </head>
