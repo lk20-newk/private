@@ -167,7 +167,7 @@
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+            gap: 20px; /* فاصله بین کارت ها */
             justify-content: center;
         }
 
@@ -192,12 +192,16 @@
         
         .price-wrapper {
             margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         .price-wrapper .old-price {
             font-size: 1.5rem;
             color: var(--danger-color);
             text-decoration: line-through;
-            margin-left: 10px;
         }
         .price-wrapper .new-price {
             font-size: 2rem;
@@ -219,7 +223,11 @@
         @media (max-width: 768px) {
             .hero-section h1 { font-size: 2rem; }
             .section-title h2 { font-size: 1.8rem; }
-            .pricing-grid { grid-template-columns: 1fr; } /* یک ستونه شدن در موبایل */
+            .pricing-grid { gap: 15px; } /* کاهش فاصله در موبایل */
+            .product-card { padding: 15px; }
+            .product-card .plan-name { font-size: 2rem; }
+            .price-wrapper .new-price { font-size: 1.6rem; }
+            .price-wrapper .old-price { font-size: 1.3rem; }
         }
 
     </style>
@@ -269,8 +277,8 @@
                 <div class="product-card">
                     <div class="plan-name">۱</div><div class="plan-duration">ماهه</div>
                     <div class="price-wrapper">
-                        <span class="old-price">265</span>
-                        <span class="new-price">185 <span class="small-text">هزار تومان</span></span>
+                        <span class="old-price">۲۶۵</span>
+                        <span class="new-price">۱۸۵ <span class="small-text">هزار تومان</span></span>
                     </div>
                     <ul class="features"><li>۲ کاربر همزمان</li><li>حجم نامحدود</li><li>پشتیبانی کامل</li></ul>
                     <a href="https://t.me/vpnlike1?text=سلام%20درخواست%20اکانت%20VIP%20یکماهه%20دارم" class="btn btn-blue">خرید از تلگرام</a>
@@ -279,8 +287,8 @@
                     <div class="badge">پیشنهاد ویژه</div>
                     <div class="plan-name">۳</div><div class="plan-duration">ماهه</div>
                      <div class="price-wrapper">
-                        <span class="old-price">540</span>
-                        <span class="new-price">379 <span class="small-text">هزار تومان</span></span>
+                        <span class="old-price">۵۴۰</span>
+                        <span class="new-price">۳۷۹ <span class="small-text">هزار تومان</span></span>
                     </div>
                     <ul class="features"><li>۲ کاربر همزمان</li><li>حجم نامحدود</li><li>پشتیبانی کامل</li></ul>
                     <a href="https://t.me/vpnlike1?text=سلام%20درخواست%20اکانت%20VIP%20سه%20ماهه%20دارم" class="btn btn-blue">خرید از تلگرام</a>
@@ -300,8 +308,8 @@
                         <img src="germany.png" alt="Germany"><img src="france.png" alt="France"><img src="turkey.png" alt="Turkey"><img src="usa.png" alt="USA">
                     </div>
                     <div class="price-wrapper">
-                        <span class="old-price">360</span>
-                        <span class="new-price">250 <span class="small-text">هزار تومان</span></span>
+                        <span class="old-price">۳۶۰</span>
+                        <span class="new-price">۲۵۰ <span class="small-text">هزار تومان</span></span>
                     </div>
                     <ul class="features"><li>آی‌پی کاملا اختصاصی</li><li>۲ کاربر همزمان</li><li>حجم نامحدود</li></ul>
                      <a href="https://t.me/vpnlike1?text=سلام%20درخواست%20اکانت%20آی%20پی%20ثابت%20یکماهه%20دارم" class="btn btn-blue">خرید از تلگرام</a>
@@ -313,8 +321,8 @@
                         <img src="germany.png" alt="Germany"><img src="france.png" alt="France"><img src="turkey.png" alt="Turkey"><img src="usa.png" alt="USA">
                     </div>
                     <div class="price-wrapper">
-                        <span class="old-price">640</span>
-                        <span class="new-price">450 <span class="small-text">هزار تومان</span></span>
+                        <span class="old-price">۶۴۰</span>
+                        <span class="new-price">۴۵۰ <span class="small-text">هزار تومان</span></span>
                     </div>
                     <ul class="features"><li>آی‌پی کاملا اختصاصی</li><li>۲ کاربر همزمان</li><li>حجم نامحدود</li></ul>
                      <a href="https://t.me/vpnlike1?text=سلام%20درخواست%20اکانت%20آی%20پی%20ثابت%20سه%20ماهه%20دارم" class="btn btn-blue">خرید از تلگرام</a>
@@ -331,8 +339,8 @@
                 <div class="product-card">
                     <div class="plan-name" style="font-size: 1.8rem; margin-top:0;">پنل نمایندگی</div><div class="plan-duration">یک ماهه</div>
                     <div class="price-wrapper">
-                        <span class="old-price">100</span>
-                        <span class="new-price">80 <span class="small-text">تومان / هر اکانت</span></span>
+                        <span class="old-price">۱۰۰</span>
+                        <span class="new-price">۸۰ <span class="small-text">تومان / هر اکانت</span></span>
                     </div>
                     <ul class="features"><li class="special-feature">سود شما: ۲ میلیون تومان</li><li>۳۰ اکانت تک کاربر</li><li>هر اکانت ۵۰ گیگابایت</li><li>آی‌پی ثابت</li></ul>
                     <a href="https://t.me/vpnlike1?text=سلام%20درخواست%20بسته%20نمایندگی%20دارم" class="btn btn-orange">دریافت پنل</a>
