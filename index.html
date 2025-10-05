@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VPNLike - سرویس VPN اختصاصی</title>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    
     <style>
         /* --- تعریف فونت‌ها --- */
         @font-face {
@@ -267,6 +272,172 @@
             .price-wrapper .old-price { font-size: 1.1rem; }
             .info-grid, .pricing-grid { grid-template-columns: 1fr; } 
         }
+
+        /* --- START: REVISED Sticky Banner Styles (V3 with Delay) --- */
+
+/* استایل پایه (برای موبایل - تمام عرض) */
+.sticky-bottom-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #facc15; /* زرد مدرن و جذاب */
+    color: #1f2937; /* خاکستری تیره برای متن */
+    padding: 12px 15px;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'IRANSansWeb', sans-serif;
+    direction: rtl;
+    
+    /* تغییرات برای انیمیشن و تاخیر در نمایش */
+    opacity: 0;
+    transform: translateY(150%);
+    pointer-events: none; /* غیرقابل کلیک در حالت مخفی */
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease-out; /* انیمیشن نرم‌تر */
+}
+
+/* کلاس جدید برای نمایش بنر */
+.sticky-bottom-banner.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto; /* قابل کلیک در حالت نمایش */
+}
+
+.sticky-bottom-banner .banner-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 15px;
+    position: relative;
+}
+
+.sticky-bottom-banner .banner-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.sticky-bottom-banner .banner-icon {
+    font-size: 1.8rem;
+    display: block;
+}
+
+.sticky-bottom-banner .banner-text {
+    text-align: right;
+}
+
+.sticky-bottom-banner .banner-text h4 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #3b454f; /* تیره‌تر برای کنتراست بهتر */
+}
+
+.sticky-bottom-banner .banner-text p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #4b5563;
+    display: none; /* در موبایل مخفی است */
+}
+
+.sticky-bottom-banner .banner-cta-btn {
+    background-color: #1f2937; /* دکمه تیره مشابه نمونه */
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+.sticky-bottom-banner .banner-cta-btn i {
+    font-size: 1rem;
+}
+
+.sticky-bottom-banner .banner-cta-btn:hover {
+    background-color: #111827; /* تیره‌تر در هاور */
+    transform: scale(1.05);
+}
+
+.sticky-bottom-banner .close-banner-btn {
+    background: transparent;
+    border: none;
+    color: #4b5563;
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.3s ease, color 0.3s ease;
+    position: absolute;
+    top: -11px;
+    left: -11px;
+}
+
+.sticky-bottom-banner .close-banner-btn:hover {
+    transform: rotate(90deg);
+    color: #111827;
+}
+
+/* استایل دسکتاپ (برای صفحات بزرگتر از 768 پیکسل) */
+@media (min-width: 769px) {
+    .sticky-bottom-banner {
+        /* تبدیل به کارت در گوشه پایین-راست */
+        width: auto;
+        max-width: 420px;
+        left: auto; /* حذف حالت تمام-عرض */
+        right: 30px;
+        bottom: 30px;
+        border-radius: 16px; /* گردی بیشتر برای کارت */
+        padding: 25px;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: right;
+    }
+
+    .sticky-bottom-banner .banner-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .sticky-bottom-banner .banner-content {
+        flex-direction: row;
+        gap: 15px;
+    }
+    
+    .sticky-bottom-banner .banner-icon {
+        font-size: 2.2rem;
+    }
+
+    .sticky-bottom-banner .banner-text p {
+        display: block; /* نمایش متن دوم در دسکتاپ */
+    }
+
+    .sticky-bottom-banner .banner-cta-btn {
+        width: 100%; /* دکمه تمام عرض کارت شود */
+        justify-content: center; /* محتوای دکمه وسط‌چین شود */
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    .sticky-bottom-banner .close-banner-btn {
+        position: absolute;
+        top: -15px; /* قرارگیری در داخل کارت */
+        left: -11px;
+        font-size: 1.3rem;
+    }
+}
+/* --- END: REVISED Sticky Banner Styles (V3 with Delay) --- */
     </style>
 </head>
 <body>
@@ -410,5 +581,43 @@
         </div>
     </footer>
 
+
+    <div id="sticky-test-banner" class="sticky-bottom-banner">
+    <div class="banner-wrapper">
+        <button id="close-sticky-banner" class="close-banner-btn" aria-label="بستن بنر">&times;</button>
+        <div class="banner-content">
+            <div class="banner-icon">🚀</div>
+            <div class="banner-text">
+                <h4>میخوای قبل از خرید تست کنی؟</h4>
+                <p>همین حالا رایگان امتحان کن!</p>
+            </div>
+        </div>
+        <a href="https://t.me/vpnlikebot" target="_blank" class="banner-cta-btn">
+            <i class="fas fa-bolt"></i> دریافت تست رایگان
+        </a>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const stickyBanner = document.getElementById('sticky-test-banner');
+    const closeBannerBtn = document.getElementById('close-sticky-banner');
+
+    // نمایش بنر پس از 2 ثانیه
+    if (stickyBanner) {
+        setTimeout(function() {
+            stickyBanner.classList.add('is-visible');
+        }, 2000); // 2000 میلی‌ثانیه = 2 ثانیه
+    }
+
+    // مخفی کردن بنر با کلیک روی دکمه بستن
+    if (closeBannerBtn && stickyBanner) {
+        closeBannerBtn.addEventListener('click', function() {
+            stickyBanner.classList.remove('is-visible');
+        });
+    }
+});
+</script>
+    
 </body>
 </html>
