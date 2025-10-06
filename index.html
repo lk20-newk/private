@@ -65,24 +65,30 @@
             padding: 20px;
         }
 
-        /* --- START: بنر تخفیف بالای صفحه (نسخه جدید و جذاب) --- */
-        .discount-banner {
-            position: sticky; /* می‌چسبد به بالای صفحه هنگام اسکرول */
-            top: 0;
-            z-index: 1000; /* روی بقیه محتوا قرار می‌گیرد */
-            background: linear-gradient(90deg, #f39c12, #e74c3c); /* گرادینت نارنجی-قرمز برای جلب توجه */
-            color: #fff;
-            padding: 12px 20px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            display: flex;
-            justify-content: center; /* محتوا در مرکز قرار می‌گیرد */
-            align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* سایه برای برجستگی */
-            animation: pulse-bg 3s infinite; /* انیمیشن پالس برای پس‌زمینه */
-            text-align: center;
-            position: relative; /* برای موقعیت‌دهی دکمه بستن */
-        }
+       /* --- START: بنر تخفیف بالای صفحه (نسخه جدید و جذاب) --- */
+.discount-banner {
+    position: fixed; /* <<-- تغییر اصلی اینجاست */
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;      /* <<-- این خط اضافه شده است */
+    z-index: 1000;
+    background: linear-gradient(90deg, #f39c12, #e74c3c);
+    color: #fff;
+    padding: 12px 20px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    animation: pulse-bg 3s infinite;
+    text-align: center;
+}
+
+        .hero-section {
+    margin-top: 50px; /* این فاصله باعث می‌شود هدر زیر بنر قرار نگیرد */
+}
 
         /* انیمیشن برای تغییر آرام پس‌زمینه */
         @keyframes pulse-bg {
